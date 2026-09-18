@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: #183a3a;
+  --primary-foreground: #f8f7f2;
+  --sidebar-primary: #b9ef72;
+  --sidebar-primary-foreground: #183a3a;
+  --chart-1: #b9ef72;
+  --chart-2: #4b8f8b;
+  --chart-3: #f3a675;
+  --chart-4: #183a3a;
+  --chart-5: #e4ded2;
+  --radius: 0.85rem;
+  --background: #f5f3ef;
+  --foreground: #183a3a;
+  --card: #fffdf9;
+  --card-foreground: #183a3a;
+  --popover: #fffdf9;
+  --popover-foreground: #183a3a;
+  --secondary: #ebe9e3;
+  --secondary-foreground: #40605d;
+  --muted: #ebe9e3;
+  --muted-foreground: #73807e;
+  --accent: #e6f6d8;
+  --accent-foreground: #183a3a;
+  --destructive: #c05d4c;
+  --destructive-foreground: #fffdf9;
+  --border: #e5e2da;
+  --input: #e5e2da;
+  --ring: #70a893;
+  --sidebar: #183a3a;
+  --sidebar-foreground: #f8f7f2;
+  --sidebar-accent: #254b49;
+  --sidebar-accent-foreground: #f8f7f2;
+  --sidebar-border: #315b58;
+  --sidebar-ring: #b9ef72;
+}
+
+.dark {
+  --background: #102b2b;
+  --foreground: #f8f7f2;
+  --card: #183a3a;
+  --card-foreground: #f8f7f2;
+  --popover: #183a3a;
+  --popover-foreground: #f8f7f2;
+  --secondary: #254b49;
+  --secondary-foreground: #dfe9e4;
+  --muted: #254b49;
+  --muted-foreground: #b4c1bc;
+  --accent: #2d544f;
+  --accent-foreground: #f8f7f2;
+  --border: #315b58;
+  --input: #315b58;
+  --ring: #b9ef72;
+  --sidebar: #0c2223;
+  --sidebar-foreground: #f8f7f2;
+  --sidebar-accent: #183a3a;
+  --sidebar-accent-foreground: #f8f7f2;
+  --sidebar-border: #254b49;
+  --sidebar-ring: #b9ef72;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; }
+  body { @apply bg-background text-foreground; margin: 0; min-width: 320px; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], select:not(:disabled), input:not(:disabled) { @apply cursor-pointer; }
+}
+
+@layer components {
+  .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+  .flex { min-height: 0; min-width: 0; }
+  .kifaya-card { @apply rounded-2xl border border-[#e5e2da] bg-[#fffdf9] shadow-[0_12px_32px_rgba(24,58,58,0.045)]; }
+  .kifaya-card-hover { @apply transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(24,58,58,0.08)]; }
+  .kifaya-grid { background-image: linear-gradient(rgba(24,58,58,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(24,58,58,.045) 1px, transparent 1px); background-size: 22px 22px; }
+  .kifaya-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+  .kifaya-scrollbar::-webkit-scrollbar-thumb { background: #c7d0ca; border-radius: 999px; }
+  .kifaya-scrollbar::-webkit-scrollbar-track { background: transparent; }
+}
+
+@media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; max-width: 1440px; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .kifaya-enter { animation: kifaya-enter 420ms cubic-bezier(.23,1,.32,1) both; }
+  @keyframes kifaya-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+}
